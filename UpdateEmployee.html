@@ -1,0 +1,125 @@
+﻿<!--<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+    <!-- Popper JS -->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <script src="index.js" asp-append-version="true"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm  navbar-dark" style="background-color: #2D64CD;">
+
+        <a class="navbar-brand" href="#">
+            <img src="https://www.regtechtimes.com/wp-content/uploads/2019/01/crowe.jpg" alt="logo" style="width:40px;">
+        </a>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link text-white" href="#">Crowe Employee Management Portal</a>
+            </li>
+        </ul>
+    </nav>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item px-3">
+                    <a class="nav-link text-white " href="index.html" id="home_nav">Home</a>
+                </li>
+                <li class="nav-item  px-3">
+                    <a class="nav-link text-white " href="EmployeeList.html" id="employee_nav">Employee List</a>
+                </li>
+                <li class="nav-item px-3">
+                    <a class="nav-link text-white add_nav" href="AddEmployee.html" id="add_nav">Add Employee</a>
+                </li>
+                <li class="nav-item px-3">
+                    <a class="nav-link text-white " href="UpdateEmployee.html" id="update_nav">Update Employee</a>
+                </li>
+                <li class="nav-item px-3">
+                    <a class="nav-link text-white " href="#" id="depart_nav">Manage Departments</a>
+                </li>
+                <li class="nav-item px-3">
+                    <a class="nav-link text-white " href="#" id="report_nav">Reports</a>
+                </li>
+                <li class="nav-item px-3">
+                    <a class="nav-link text-white " href="#" id="develop_nav">About Developer</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>-->
+    <!--Update Employee-->
+    <!--<div id="update_employee">
+
+        <div class="container bg-light mt-5 " style="width: 50%">
+            <hr>
+            <div class="mr-5 text-warning"><b style="font-size:30px"><i>Edit Employee</i></b></div>
+            <form>
+                <hr>
+                <div class="form-group">
+                    <label for="emp_code1"> Employee No:<span class="text-danger font-weight-bold px-1" style="font-size:20px;">*</span></label>
+                    <input type="text" class="form-control" id="emp_code1" name="emp_code1" placeholder="Enter employee number">
+                </div><hr>
+                <div class="form-group">
+                    <label for="name1">Name:<span class="text-danger font-weight-bold px-1" style="font-size:20px;">*</span></label>
+                    <input type="text" class="form-control" id="name1" name="name1" placeholder="Enter name">
+                </div><hr>
+                <div class="form-group">
+                    <label for="email1"> Email:<span class="text-danger font-weight-bold px-1" style="font-size:20px;">*</span></label>
+                    <input type="text" class="form-control" id="email1" placeholder="Enter email" name="email1">
+
+                </div><hr>
+                <div class="form-group">
+                    <label for="hdate1">Joining Date:<span class="text-danger font-weight-bold px-1" style="font-size:20px;">*</span></label>
+                    <input type="date" class="form-control" id="hdate1" placeholder="Enter Joining Date" value="">
+                </div><hr>
+                <div class="form-group">
+                    <label for="designation">Designation:<span class="text-danger font-weight-bold px-1" style="font-size:20px;">*</span></label>
+                    <select class="form-control" id="designation1">
+                        <option value="" hidden selected>Select Designation</option>
+                        <option value="Manager">Manager</option>
+                        <option value="Product Engineer">Product Engineer</option>
+                        <option value="QA">QA</option>
+                        <option value="Business Analyst">Business Analyst</option>
+                    </select>
+                </div><hr>
+                <div class="form-group">
+                    <input type="checkbox" id="check1" name="check1">
+                    <label for="img">Permanent Address:</label><br />
+                    <label>Addresss Line 1:</label>
+                    <input type="text" class="form-control" id="address1" placeholder="Enter address line1" value="">
+                    <label>Addresss Line 2:</label>
+                    <input type="text" class="form-control" placeholder="Enter address line2" value="">
+                </div><hr>
+                <div class="form-group">
+                    <input type="checkbox">
+                    <label for="img">Communication Address:</label><br />
+                    <label>Addresss Line 1:</label>
+                    <input type="text" class="form-control" placeholder="Enter address line1" value="">
+                    <label>Addresss Line 2:</label>
+                    <input type="text" class="form-control" placeholder="Enter address line2" value="">
+                </div><hr>
+                <div>
+                    <button type="button" class="btn btn-warning" onclick="update()">Update</button> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn btn-warning" href="#">Cancel</button>
+                </div><br>
+            </form>
+        </div>
+    </div>
+    <div id="delete_employee">
+        <p>Delete Employee</p>
+        alert
+    </div>
+</body>
+</html>-->

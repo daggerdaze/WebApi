@@ -1,0 +1,361 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm  navbar-dark bg-warning" >
+
+        <a class="navbar-brand" href="index.html">
+            <img src="https://www.regtechtimes.com/wp-content/uploads/2019/01/crowe.jpg" alt="logo" style="width:40px;">
+        </a>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link text-white" href="#">Crowe Employee Management Portal</a>
+            </li>
+        </ul>
+    </nav>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+
+        <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>-->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item px-3">
+                    <a class="nav-link text-white " href="#" id="home_nav">Home</a>
+                </li>
+                <li class="nav-item  px-3">
+                    <a class="nav-link text-white " href="#" id="employee_nav">Employee List</a>
+                </li>
+                <li class="nav-item px-3">
+                    <a class="nav-link text-white " href="#" id="depart_nav">Manage Departments</a>
+                </li>
+                <li class="nav-item px-3">
+                    <a class="nav-link text-white " href="#" id="report_nav">Reports</a>
+                </li>
+                <li class="nav-item px-3">
+                    <a class="nav-link text-white " href="#" id="develop_nav">About Developer</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+    <!--Home page -->
+    <div id="home">
+        <div class="d-flex justify-content-center align-items-center" style="height:500px;">
+            <div>
+                <h1>Employee Management System</h1>
+            </div>
+
+        </div>
+    </div>
+    <!--Employee list page -->
+    <div id="employee_list">
+
+        <div class="text-center mt-4 py-3" id="main-container">
+            <h3>Employee List</h3>
+        </div>
+
+        <nav class="navbar navbar-expand-sm  " style="background-color: #2D64CD;">
+
+            <nav class="navbar-nav ml-auto mr-auto navbar-expand">
+                <div class="nav-item">
+                    <form class="form-group  d-flex">
+                        <input class="form-control mr-sm-2 " type="text" placeholder="Search" id="searchall">
+                        <button class="btn btn-warning" type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+                </div>
+                <div class="nav-item d-inline-block">
+                    <button class="btn" onclick="newbtn()"><i class="fa fa-plus-circle mr-2"></i><span>New</span></button>
+                </div>
+            </nav>
+        </nav>
+
+
+
+        <div class="container">
+            <table class="table table-hover" id="emplist">
+                <thead>
+                    <tr>
+                        <!--<th>.</th>-->
+                        <th>SrNo.<i class="fa fa-caret-up" id="upicon" aria-hidden="true" style="display:none;" onclick="seticon('upicon','downicon','0','asc')"></i> <i class="fa fa-caret-down" id="downicon" aria-hidden="true" onclick="seticon('downicon','upicon','0','desc')"></i></th>
+                        <th>Id<i class="fa fa-caret-up" id="upicon1" aria-hidden="true" style="display:none;" onclick="seticon('upicon1','downicon1','1','asc')"></i> <i class="fa fa-caret-down" id="downicon1" aria-hidden="true" onclick="seticon('downicon1','upicon1','1','desc')"></i></th>
+                        <th>Employee Code<i class="fa fa-caret-up" id="upicon2" aria-hidden="true" style="display:none;" onclick="seticon('upicon2','downicon2','2','asc')"></i> <i class="fa fa-caret-down" id="downicon2" aria-hidden="true" onclick="seticon('downicon2','upicon2','2','desc')"></i></th>
+                        <th>Name<i class="fa fa-caret-up" id="upicon3" aria-hidden="true" style="display:none;" onclick="seticon('upicon3','downicon3','3','asc')"></i> <i class="fa fa-caret-down" id="downicon3" aria-hidden="true" onclick="seticon('downicon3','upicon3','3','desc')"></i></th>
+                        <th>Email<i class="fa fa-caret-up" id="upicon4" aria-hidden="true" style="display:none;" onclick="seticon('upicon4','downicon4','4','asc')"></i> <i class="fa fa-caret-down" id="downicon4" aria-hidden="true" onclick="seticon('downicon4','upicon4','4','desc')"></i></th>
+                        <th>Designation<i class="fa fa-caret-up" id="upicon5" aria-hidden="true" style="display:none;" onclick="seticon('upicon5','downicon5','5','asc')"></i> <i class="fa fa-caret-down" id="downicon5" aria-hidden="true" onclick="seticon('downicon5','upicon5','5','desc')"></th>          
+                        <th>Joining Date<i class="fa fa-caret-up" id="upicon6" aria-hidden="true" style="display:none;" onclick="seticon('upicon6','downicon6','6','asc')"></i> <i class="fa fa-caret-down" id="downicon6" aria-hidden="true" onclick="seticon('downicon6','upicon6','6','desc')"></th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="llist">
+                </tbody>
+            </table>
+        </div>
+        <div class="container ">
+            <a href="#" class="paginate px-3 mt-3 mb-3 rounded-circle" id="previous"> &#8249;</a>
+        <a href="#" class="paginate px-3 mt-3 mb-3 rounded-circle" id="next">&#8250; </a>
+    </div>
+        <!--<div class="pagination-container">
+            <ul class="pagination"></ul>
+        </div>-->
+    </div>
+    <!--Add Employee Page -->
+    <div id="add_employee">
+        <div class="container bg-light mt-5 " style="width: 40%">
+            <hr>
+            <div class="mr-5 text-warning"><b style="font-size:30px"><i>Add New Employee</i></b></div>
+            <form>
+                <hr>
+                <div class="form-group">
+                    <label for="emp_code"> Employee No:<span class="text-danger font-weight-bold px-1" style="font-size:20px;">*</span></label>
+                    <input type="text" class="form-control" id="emp_code" placeholder="Enter employee number" name="emp_code" value="" required>
+                </div><hr>
+                <div class="form-group">
+                    <label for="name">Name:<span class="text-danger font-weight-bold px-1" style="font-size:20px;">*</span></label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter name"  value="" required>
+                </div><hr>
+                <div class="form-group">
+                    <label for="email"> Email:<span class="text-danger font-weight-bold px-1" style="font-size:20px;">*</span></label>
+                    <input type="email" class="form-control" id="email" pattern=".+@crowe.com" placeholder="Enter email" name="email" value="" required>
+
+                </div><hr>
+                <div class="form-group">
+                    <label for="join_date">Joining Date:<span class="text-danger font-weight-bold px-1" style="font-size:20px;">*</span></label>
+                    <input type="date" class="form-control" id="join_date" placeholder="Enter Joining Date" name="join_date" value="" required>
+                </div><hr>
+                <div class="form-group">
+                    <label for="designation">Designation:<span class="text-danger font-weight-bold px-1" style="font-size:20px;">*</span></label>
+                    <select class="form-control" id="designation" name="designation" required>
+                        <option value="" hidden selected>Select Designation</option>
+                        <option value="Senoir Tech Architect">Senoir Tech Architect</option>
+                        <option value="Data Scientist">Data Scientist</option>
+                        <option value="Manager">Manager</option>
+                        <option value="Product Engineer">Product Engineer</option>
+                        <option value="Intern">Intern</option>
+                        <option value="QA">QA</option>
+                        <option value="Business Analyst">Business Analyst</option>
+                    </select>
+                </div><hr>
+                <div class="form-group">
+                    <input type="checkbox" id="per" name="per">
+                    <label for="per">Permanent Address:</label><br />
+                    <label for="padd1a">Addresss Line 1:</label>
+                    <input type="text" class="form-control" id="padd1a" name="padd1a" placeholder="Enter address line1" value="">
+                    <label for="padd2a">Addresss Line 2:</label>
+                    <input type="text" class="form-control" id="padd2a" name="padd2a" placeholder="Enter address line2" value="">
+                </div><hr>
+                      <div class="form-group">
+                          <input type="checkbox" id="same" name="same">
+                          <label for="same">Communication Address and Permanent Address are same:</label><br />
+                          <input type="checkbox" id="comm" name="comm">
+                          <label for="comm">Communication Address:</label><br />
+                          <label for="cadd1a">Addresss Line 1:</label>
+                          <input type="text" class="form-control" id="cadd1a" name="cadd1a" placeholder="Enter address line1" value="">
+                          <label for="cadd2a">Addresss Line 2:</label>
+                          <input type="text" class="form-control" id="cadd2a" name="cadd2a" placeholder="Enter address line2" value="">
+                      </div><hr>
+                <div>
+                    <button type="button" class="btn btn-warning" onclick="save()">Add Employee</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn btn-warning" href="#">Cancel</button>
+                </div><br>
+            </form>
+        </div>
+    </div>
+    <!--Update Employee-->
+    <div id="update_employee">
+
+        <div class="container bg-light mt-5 " style="width: 40%">
+            <hr>
+            <div class="mr-5 text-warning"><b style="font-size:30px"><i>Edit Employee</i></b></div>
+            <form>
+                <hr>
+                <div class="form-group">
+                    <label for="srn"> Employee Id:<span class="text-danger font-weight-bold px-1" style="font-size:20px;">*</span></label>
+                    <input type="text" class="form-control" id="srn" name="srn" placeholder="Enter employee number" disabled>
+                    <!--<option value="" ></option>-->
+                    <!--<option value=""></option>
+                    <option value=""></option>-->
+                </div><hr>
+
+                <div class="form-group">
+                    <label for="emp_code1"> Employee No:<span class="text-danger font-weight-bold px-1" style="font-size:20px;">*</span></label>
+                    <input type="text" class="form-control" id="emp_code1" name="emp_code1" placeholder="Enter employee number" disabled>
+                </div><hr>
+                <div class="form-group">
+                    <label for="name1">Name:<span class="text-danger font-weight-bold px-1" style="font-size:20px;">*</span></label>
+                    <input type="text" class="form-control" id="name1" name="name1" placeholder="Enter name" required>
+                </div><hr>
+                <div class="form-group">
+                    <label for="email1"> Email:<span class="text-danger font-weight-bold px-1" style="font-size:20px;">*</span></label>
+                    <input type="email" class="form-control" pattern=".+@crowe.com" id="email1" placeholder="Enter email" name="email1" required>
+
+                </div><hr>
+                <div class="form-group">
+                    <label for="hdate1">Joining Date:<span class="text-danger font-weight-bold px-1" style="font-size:20px;">*</span></label>
+                    <input type="text" class="form-control" id="hdate1" placeholder="Enter Joining Date" required>
+                </div><hr>
+                <div class="form-group">
+                    <label for="designation">Designation:<span class="text-danger font-weight-bold px-1" style="font-size:20px;">*</span></label>
+                    <select class="form-control" id="designation1" required>
+                        <option value="Senoir Tech Architect">Senoir Tech Architect</option>
+                        <option value="Data Scientist">Data Scientist</option>
+                        <option value="" hidden selected>Select Designation</option>
+                        <option value="Manager">Manager</option>
+                        <option value="Product Engineer">Product Engineer</option>
+                        <option value="Intern">Intern</option>
+                        <option value="QA">QA</option>
+                        <option value="Business Analyst">Business Analyst</option>
+                    </select>
+                </div><hr>
+                <div class="form-group">
+                    <input type="checkbox" id="per1" name="per1">
+                    <label for="img">Permanent Address:</label><br />
+                    <label>Addresss Line 1:</label>
+                    <input type="text" class="form-control" id="padd1u" placeholder="Enter address line1">
+                    <label>Addresss Line 2:</label>
+                    <input type="text" class="form-control" id="padd2u" placeholder="Enter address line2">
+                </div><hr>
+                <div class="form-group">
+                    <input type="checkbox" id="comm1" name="comm1">
+                    <label for="img">Communication Address:</label><br />
+                    <label>Addresss Line 1:</label>
+                    <input type="text" class="form-control" id="cadd1u" placeholder="Enter address line1">
+                    <label>Addresss Line 2:</label>
+                    <input type="text" class="form-control" id="cadd2u" placeholder="Enter address line2">
+                </div><hr>
+                <div>
+                    <button type="button" class="btn btn-warning" onclick="update()">Update</button> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn btn-warning" href="#">Cancel</button>
+                </div><br>
+            </form>
+        </div>
+    </div>
+    <div id="delete_employee">
+        <p>Delete Employee</p>
+        alert
+    </div>
+    <!--Manage Departments-->
+    <div id="manage_department">
+        <div class="container">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Department Code</th>
+                        <th>Name</th>
+                        <th>Location</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--Reports-->
+    <div id="reports">
+        <p>Here monthly reports are shown </p>
+    </div>
+    <!--About Developer-->
+    <div id="about_developer">
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-md-5 ">
+
+                    <div class="row ml-1" style="align-content:center; align-self: center">
+                        <div class="bg-light col-9 container">
+                            <div class="card ">
+                                <i class="fas fa-user-circle text-center fa-10x mt-4"></i>
+                                <div class="container text-center">
+                                    <br>
+                                    <h3 id="id1">Shivam</h3><br>
+
+                                    <p>Developer</p><hr>
+                                </div>
+
+                                <div class="container text-center mb-2">
+                                    <a href="https://twitter.com/login"><i class="fab fa-twitter" style="color:dodgerblue;font-size:24px"></i></a>&nbsp;
+                                    <a href="https://soundcloud.com/"><i class="fab fa-soundcloud" style="color:orangered;font-size:24px"></i></a>&nbsp;
+                                    <a href="https://www.instagram.com/?hl=en"><i class='fab fa-instagram' style="color:red;font-size:24px"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4> Profile</h4>
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form>
+
+                                        <div class="form-group row">
+                                            <label for="emaildemo" class="col-4 col-form-label">Email*</label>
+                                            <div class="col-8">
+                                                <input id="emaildemo" name="emaildemo" value="shivam.singal@crowe.com" placeholder="Email" class="form-control here" type="text" disabled>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="addressdemo" class="col-4 col-form-label">Address</label>
+                                            <div class="col-8">
+                                                <textarea id="addressdemo" name="addressdemo" value="Noida Branch" cols="40" rows="4" class="form-control" disabled>Noida Branch</textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="mobile" class="col-4 col-form-label">Mobile</label>
+                                            <div class="col-8">
+                                                <input id="mobile" name="mobile" value="7696153966" placeholder="Mobile No." class="form-control here" type="text" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="dept" class="col-4 col-form-label">Department</label>
+                                            <div class="col-8">
+                                                <input id="dept" name="dept" value="Product Engineering Team" placeholder="dept" class="form-control here" type="text" disabled>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <script src="index.js" asp-append-version="true"></script>
+    <script src="paginator.js"></script>
+
+    <footer id="sticky">
+        <hr class="mt-3 w-75">
+        <div class="size text-center text-muted"><i class="material-icons size">&copy; copyright</i><span>&nbsp;2021, www.CroweHorwathLLP.com, All rights reserved.</span></div>
+        <br>
+        <br>
+    </footer>
+</body>
+    </html>
+
+
